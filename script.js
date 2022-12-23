@@ -1,5 +1,5 @@
 // Array of special characters to be included in password
-var specialCharacters = [
+let specialCharacters = [
   '@',
   '%',
   '+',
@@ -26,10 +26,10 @@ var specialCharacters = [
 ];
 
 // Array of numeric characters to be included in password
-var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+let numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
-var lowerCasedCharacters = [
+let lowerCasedCharacters = [
   'a',
   'b',
   'c',
@@ -59,7 +59,7 @@ var lowerCasedCharacters = [
 ];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [
+let upperCasedCharacters = [
   'A',
   'B',
   'C',
@@ -88,11 +88,28 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+let allCharacters = [
+  lowerCasedCharacters, 
+  upperCasedCharacters, 
+  numericCharacters, 
+  specialCharacters
+];
+
+let agreedCharacters = [];
+
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  let charNumbers = 0;
+  start = prompt("How long do you want your password? Choose between 10 and 64 :)");
+  if (charNumbers < 10 || charNumbers > 64) {
+    alert("Seriously, between 10 and 64 :D")
+  };
+  let lowerCase = confirm("Would you like to have lower case characters in your password?");
+  let upperCase = confirm("Would you like to have upper case characters in your password? ");
+  let numbers = confirm("Would you like to have numbers in your password? ");
+  let special = confirm("Would you like to have special characters in your password? ");
 }
-
+getPasswordOptions()
 // Function for getting a random element from an array
 function getRandom(arr) {
 
@@ -104,12 +121,12 @@ function generatePassword() {
 }
 
 // Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+let generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+  let password = generatePassword();
+  let passwordText = document.querySelector('#password');
 
   passwordText.value = password;
 }
