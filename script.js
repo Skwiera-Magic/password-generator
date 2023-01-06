@@ -88,28 +88,35 @@ let upperCasedCharacters = [
   'Z'
 ];
 
-let allCharacters = [
-  lowerCasedCharacters, 
-  upperCasedCharacters, 
-  numericCharacters, 
-  specialCharacters
-];
+
 
 let agreedCharacters = [];
 
+
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let charNumbers = 0;
-  start = prompt("How long do you want your password? Choose between 10 and 64 :)");
+  let charNumbers = [];
+  charNumbers = prompt("How long do you want your password? Choose between 10 and 64 :)")
   if (charNumbers < 10 || charNumbers > 64) {
-    alert("Seriously, between 10 and 64 :D")
+    alert("Between 10 and 64 please")
   };
-  let lowerCase = confirm("Would you like to have lower case characters in your password?");
-  let upperCase = confirm("Would you like to have upper case characters in your password? ");
-  let numbers = confirm("Would you like to have numbers in your password? ");
-  let special = confirm("Would you like to have special characters in your password? ");
+  let lowerCase = confirm("Would you like to have lower case characters in your password?")
+  if (lowerCase === true) {
+    let agreedCharacters = agreedCharacters.concat(lowerCase)
+  }
+  let upperCase = confirm("Would you like to have upper case characters in your password? ")
+  if (upperCase === true) {
+    let agreedCharacters = agreedCharacters.concat(upperCase)
+  }
+  let numbers = confirm("Would you like to have numbers in your password? ")
+  if (numbers === true) {
+    let agreedCharacters = agreedCharacters.concat(numbers)
+  }
+  let special = confirm("Would you like to have special characters in your password? ")
+  if (special === true) {
+    let agreedCharacters = agreedCharacters.concat(special)
+  }
 }
-getPasswordOptions()
 // Function for getting a random element from an array
 function getRandom(arr) {
 
@@ -132,4 +139,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+generateBtn.addEventListener('click', getPasswordOptions);
