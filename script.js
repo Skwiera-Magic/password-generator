@@ -91,41 +91,46 @@ let upperCasedCharacters = [
 
 
 let agreedCharacters = [];
+let charNumbers = [];
 
 
 // Function to prompt user for password options
-function getPasswordOptions() {
-  let charNumbers = [];
+function passwordOptions() {
   charNumbers = prompt("How long do you want your password? Choose between 10 and 64 :)")
   if (charNumbers < 10 || charNumbers > 64) {
     alert("Between 10 and 64 please")
+    return
   };
   let lowerCase = confirm("Would you like to have lower case characters in your password?")
-  if (lowerCase === true) {
-    let agreedCharacters = agreedCharacters.concat(lowerCase)
-  }
   let upperCase = confirm("Would you like to have upper case characters in your password? ")
-  if (upperCase === true) {
-    let agreedCharacters = agreedCharacters.concat(upperCase)
-  }
   let numbers = confirm("Would you like to have numbers in your password? ")
-  if (numbers === true) {
-    let agreedCharacters = agreedCharacters.concat(numbers)
-  }
   let special = confirm("Would you like to have special characters in your password? ")
+  if (lowerCase === true) {
+    agreedCharacters = agreedCharacters.concat(lowerCasedCharacters)
+  }
+  if (upperCase === true) {
+    agreedCharacters = agreedCharacters.concat(upperCasedCharacters)
+  }
+  if (numbers === true) {
+    agreedCharacters = agreedCharacters.concat(numericCharacters)
+  }
   if (special === true) {
-    let agreedCharacters = agreedCharacters.concat(special)
+    agreedCharacters = agreedCharacters.concat(specialCharacters)
+    return agreedCharacters  
+  }
+  if ( lowerCase === false && upperCase === false && numbers === false && special === false) {
+    alert("You need to choose at least one type of characters")
+    return
   }
 }
 // Function for getting a random element from an array
-function getRandom(arr) {
-
+let randomDigits = [];
+function getRandom() {
+  let randomDigits = agreedCharacters[Math.floor(Math.random() * charNumbers)] 
+  return randomDigits
 }
-
-// Function to generate password with user input
-function generatePassword() {
-
-}
+getRandom()
+console.log(randomDigits)
 
 // Get references to the #generate element
 let generateBtn = document.querySelector('#generate');
@@ -139,4 +144,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', getPasswordOptions);
+generateBtn.addEventListener('click', passwordOptions);
