@@ -97,7 +97,7 @@ var passwordLength = "";
 // Function to prompt user for password options
 function passwordOptions() {
   passwordLength = prompt("How long do you want your password? Choose between 10 and 64 :)")
-  if (passwordLength < 1 || passwordLength > 64) {
+  if (passwordLength < 10 || passwordLength > 64) {
     alert("Between 10 and 64 please")
     return
   };
@@ -141,7 +141,6 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = getPassword();
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
 

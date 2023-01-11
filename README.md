@@ -10,13 +10,13 @@
 
 ### The challenge
 
-*Here's random password generator for you to use and enjoy :)
-*While creating it I have learned loops, functions, how to use math.floor and math.random
-*
+* Here's random password generator for you to use and enjoy :)
+* While creating it I have learned loops, functions, how to use math.floor and math.random
+* It was not an easy task but after a lot of struggling I managed to get it to work
 
 ### Screenshot
 
-* ![Screenshot of the deployed portfolio](./images/portfolio.png)
+* ![Screenshot of the deployed password generator](./images/screenshot.png)
 
 ### Links
 
